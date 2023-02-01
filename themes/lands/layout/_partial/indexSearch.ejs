@@ -1,0 +1,122 @@
+<!-- breadcrumb Start-->
+<div class="">
+    <div class="" style="width: 80%; margin: 0px auto; margin-top: 40px; margin-bottom: 20px; ">
+        <div class="">
+            <div class="" style="width: 100%; ">
+                <nav>
+                    <ul style="text-align: center; ">
+                        <input id="searchInput"
+                               style="width: 40%; height: 40px; background-color: #fcfcfd ;
+                               text-transform: none; border-color: #cccccc; " />
+                        <span style="line-height: 40px; cursor: pointer; " onclick="redirect2Search()">&nbsp;&nbsp;搜索</span>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+
+<script type="text/javascript">
+    //
+    document.addEventListener("DOMContentLoaded", function(){
+        reStyleCateA();
+        goInitialSearch();
+    })
+
+    function reStyleCateA() {
+        var tagAs = document.getElementById("category-block").getElementsByTagName("a")
+        console.log("tagAs: " + tagAs)
+        if (tagAs != undefined) {
+            for (let i = 0; i < tagAs.length; i ++) {
+                let item = tagAs[i];
+                item.style.paddingBottom = "0px";
+                item.style.paddingTop = "10px";
+            }
+        }
+    }
+
+    function goInitialSearch() {
+        const urlForSearch = location.href;
+        let  urlForSearchs = urlForSearch.split("?");
+        console.log("urlForSearchs: " + urlForSearchs)
+        let searchVal = "";
+        if (urlForSearchs.length > 1) {
+            let url_param = urlForSearchs[1]
+            searchVals = url_param.split("=");
+            searchVal = searchVals[1];
+            console.log("searchVal: " + searchVal);
+        }
+        searchVal = decodeURI(searchVal)
+        // 回填到搜索框中
+        document.getElementById("searchInput").setAttribute("value", searchVal)
+        if (searchVal != undefined && searchVal != "") {
+            goSearchRedirect(searchVal)
+        }
+    }
+
+    function goSearchRedirect(searchVal) {
+        if (searchVal != undefined && searchVal != "") {
+            goRequest(searchVal)
+        }
+    }
+
+    function goSearch() {
+        var searchInput = document.getElementById("searchInput").value;
+        if (searchInput.length < 1) {
+            alert("请输入搜索内容！");
+            return;
+        }
+        console.log("searchInput: " + searchInput);
+        goRequest(searchInput)
+    }
+
+    function goRequest(val) {
+        $.ajax({
+            url:"https://hongkezhang.com/elastic/search/do",
+            type:"post",
+            contentType: "application/json",
+            data: JSON.stringify(
+                {"key": val}
+            ),
+            scriptCharset: 'UTF-8',
+            beforeSend:function(xhr){
+                // alert(this.data)
+                console.log("before send");
+            },
+            success:function(data){
+                console.log(data);
+                showResItems(data);
+
+            },
+            error:function(){
+                console.log("请求error");
+            },
+            complete:function(xhr){
+                console.log("complete");
+                console.log(xhr);
+            }
+        })
+    }
+
+    function showResItems(data) {
+        document.getElementById("pages").style.display = "none";
+        var res = "";
+        data.urlContentDtoList.forEach(function (item) {
+            res = res + '<div class="single-job-items mb-30" style="width: 100%;" ><div class="job-items"><div class="job-tittle" style="padding-left: 0px; width: 100%;">';
+            res = res + '<a style="color: #062c33;" href="' + item.url + '"><p class="cat-link" style="display: block; width: 100%; line-height: 100%; font-size: 16px; color: #062c33; ">' + item.title + '</p>';
+            res = res + '<p style="color: #cccccc; margin-top: 15px; ">'+ item.highLights[0].slice(0, 70) +'...</p>';
+            res = res + "</a></div></div></div>"
+        })
+        document.getElementById("cat-items").innerHTML = res;
+    }
+
+    function redirect2Search() {
+        var searchInput = document.getElementById("searchInput").value;
+        if (searchInput.length < 1) {
+            alert("请输入搜索内容！");
+            return;
+        }
+        window.location = "/categories/backend?searchKey=" + searchInput;
+    }
+</script>

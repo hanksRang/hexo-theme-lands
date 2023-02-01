@@ -1,0 +1,101 @@
+<div class="" style="width: 100%; display: flex;">
+    <div style="width: 50%; ">
+    <div class="" >
+        <div class="latest-slider" >
+            <div class="slider-active" >
+                <!-- Single slider -->
+                <% site.posts.sort('date', theme.home_page_sort).limit(1).each(function(post){ %>
+
+                    <div class="single-baner-nw2 mb-30 text-center">
+                        <div class="banner-img-cap2">
+                            <div class="banner-img" style="width: 100%; ">
+                                <a href="<%- url_for(post.path) %>">
+                                    <img src="<%= post.cover%>" style="width: 100%; " alt="">
+                                </a>
+                            </div>
+                            <div class="banner-cap2">
+                                <p><%= theme.menu[post.categories.first().name] %></p>
+                                <h3><a href="<%- url_for(post.path) %>"><%= post.description%></a></h3>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+
+                <%# site.posts.sort('date', theme.home_page_sort).limit(1).each(function(post){ %>
+                <!-- Single slider -->
+<!--                <div class="single-slider">-->
+<!--                    <div class="trending-top mb-30">-->
+<!--                        <div class="trend-top-img text-center">-->
+<!--                            <img src="assets/img/gallery/latest-post.png" alt="">-->
+<!--                            <div class="trend-top-cap">-->
+<!--                                <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Design</span>-->
+<!--                                <h2><a href="post_details.html"  data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Calling time on irresponsible junk food advertising to children</a></h2>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <%#})%>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <% site.posts.sort('date', theme.home_page_sort).limit(2).slice(1, 2).each(function(post){ %>
+
+            <div class="single-baner-nw2 mb-30 text-center">
+                <div class="banner-img-cap2">
+                    <div class="banner-img" style="width: 100%; ">
+                        <a href="<%- url_for(post.path) %>">
+                            <img src="<%= post.cover%>" style="width: 100%; " alt="">
+                        </a>
+                    </div>
+                    <div class="banner-cap2">
+                        <p><%= theme.menu[post.categories.first().name] %></p>
+                        <h3><a href="<%- url_for(post.path) %>"><%= post.description%></a></h3>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    </div>
+    <div style="width: 50%; ">
+        <div class="">
+            <!-- smoll items -->
+            <% site.posts.sort('date', theme.home_page_sort).limit(3).slice(2, 3).each(function(post){ %>
+
+                <div class="single-baner-nw2 mb-30 text-center">
+                    <div class="banner-img-cap2">
+                        <div class="banner-img" style="width: 100%; ">
+                            <a href="<%- url_for(post.path) %>">
+                                <img src="<%= post.cover%>" style="width: 100%; " alt="">
+                            </a>
+                        </div>
+                        <div class="banner-cap2">
+                            <p><%= theme.menu[post.categories.first().name] %></p>
+                            <h3><a href="<%- url_for(post.path) %>"><%= post.description%></a></h3>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="">
+            <% site.posts.sort('date', theme.home_page_sort).limit(4).slice(3, 4).each(function(post){ %>
+
+                <div class="single-baner-nw2 mb-30 text-center">
+                    <div class="banner-img-cap2">
+                        <div class="banner-img" style="width: 100%; ">
+                            <a href="<%- url_for(post.path) %>">
+                                <img src="<%= post.cover%>" style="width: 100%; " alt="">
+                            </a>
+                        </div>
+                        <div class="banner-cap2">
+                            <p><%= theme.menu[post.categories.first().name] %></p>
+                            <h3><a href="<%- url_for(post.path) %>"><%= post.description%></a></h3>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+</div>

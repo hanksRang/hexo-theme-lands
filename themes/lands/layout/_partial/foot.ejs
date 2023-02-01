@@ -1,0 +1,101 @@
+<footer>
+    <!-- Footer Start-->
+
+    <!-- footer-bottom area -->
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="footer-border">
+                <div class="row align-items-center justify-content-center">
+                    <div class="">
+                        <div class="footer-copy-right text-center">
+                            <p id="menu-right"></p>
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <a href="https://beian.miit.gov.cn/" style="color: #cccccc; ">蜀ICP备No. 2022004301-1</a></a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p style="color: #cccccc; font-size: 14px; ">版权申明：本站内容的版权均属于本网站，任何个人或者组织不可以任何形式复制、转载、镜像本站内容，本站拥有一切起诉侵权行为的权利。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+</footer>
+
+<!-- Scroll Up -->
+<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+
+<style type="text/css">
+    .category-block {
+        width: 100%;
+        margin: 0 auto;
+        font-weight: normal;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    a {
+        font-family: "微软雅黑";
+    }
+
+    .category-block .post-category-list-item {
+        display: inline-block;
+    }
+
+    .category-block .post-category-list-item a {
+        font-size: 16px;
+        display: inline-block;
+        padding-top: 0px;
+        color: #cccccc;
+    }
+
+    .category-block .post-category-list-child {
+
+    }
+
+    .post-category-list-count {
+        display: none;
+    }
+
+    .post-category-list-link {
+        padding: 0px;
+    }
+</style>
+
+<script>
+
+    function daojiShi(storptimes) {
+        var newtime = new Date() //获取当前时间
+        var storptime = new Date(storptimes) //获取截止时间
+
+        var mistiming = storptime.getTime() - newtime.getTime() //   获取截止时间距离现在的毫秒差
+
+        var days = Math.floor(mistiming / 1000 / 60 / 60 / 24); //获取天数
+        var hours = Math.floor(mistiming / 1000 / 60 / 60 % 24); // 获取小时
+        var minutes = Math.floor(mistiming / 1000 / 60 % 60); //获取分钟数
+        var seconds = Math.floor(mistiming / 1000 % 60); //获取秒数
+
+// 判断天、时、分、秒是不是两位数，如果是直接输出，如果不是在前边加个0;
+        days <10 ? days = "0"+days : days;
+        hours <10 ? hours = "0"+hours : hours;
+        minutes <10 ? minutes = "0"+minutes : minutes;
+        seconds <10 ? seconds = "0"+seconds : seconds;
+
+// 第一种连接方法
+        // var rels = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+// 第二种连接方法
+        var rels = `距离2022年考研还有${days}天${hours}时${minutes}分${seconds}秒`
+
+// 判断时间差是不是正数，就是截止时间是不是比现在的时间晚
+        var mis = mistiming > 0? rels:"请输入正确的时间"
+        return  mis
+    }
+
+    //用计时器去实现它
+    setInterval(function(){
+        document.getElementById("menu-right").innerHTML =  daojiShi("2022,12,25")
+    },1000)//时间我们设置1000毫秒，也就是1秒钟
+
+</script>

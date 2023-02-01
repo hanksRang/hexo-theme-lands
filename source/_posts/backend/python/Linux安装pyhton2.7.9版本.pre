@@ -1,0 +1,102 @@
+---
+title: Linux安装pyhton2.7.9版本
+date: 2022-04-22 15:53:11
+category: tech
+tags: python2.7.9版本安装，python安装
+---
+
+### 下载安装包
+```shell
+cd /usr/local
+wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+tar -zxvf Python-2.7.9.tgz
+cd Python-2.7.9
+yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make -y
+./configure --prefix=/usr/local/python --enable-shared -enable-unicode=ucs4
+make
+make install
+python -v
+```
+
+### 遇到问题
+#### make命令报错如下：
+```composer log
+LD_LIBRARY_PATH=/usr/local/python/Python-2.7.9 ./python -E -S -m sysconfig --generate-posix-vars ;\
+if test $? -ne 0 ; then \
+        echo "generate-posix-vars failed" ; \
+        rm -f ./pybuilddir.txt ; \
+        exit 1 ; \
+fi
+/bin/sh: 行 5: 2754095 段错误               (核心已转储)LD_LIBRARY_PATH=/usr/local/python/Python-2.7.9 ./python -E -S -m sysconfig --generate-posix-vars
+generate-posix-vars failed
+make: *** [Makefile:476：pybuilddir.txt] 错误 1
+```
+
+网上有人的解决办法是：
+（1）
+在 ./configure 操作前，先进行配置：
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+我试了这个办法，不行
+
+这个问题，有人说是GCC的问题，要降低GCC的版本，于是我查看我的gcc版本
+```
+gcc -v
+
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-4) (GCC)
+
+```
+
+可以看到Gcc版本为8.5.0，和他说的版本一致，但是我没尝试降低GCC版本这个办法，因为GCC不仅仅被Python依赖，
+如果降低版本可能带来更多问题
+
+Pyhton官网的一个回答也涉及到这个问题：https://bugs.python.org/issue33374
+
+尝试解决：升级2.7.9到2.7.16版本
+
+wget https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz
+
+重复上述安装步骤，这一次make命令，但这一次还是有问题，显示如下日志：
+
+```composer log
+
+Python build finished, but the necessary bits to build these modules were not found:
+_bsddb             bsddb185           dbm
+dl                 gdbm               imageop
+nis                sunaudiodev
+
+```
+
+yum install -y readline-devel sqlite-devel bzip2-devel.i686 openssl-devel.i686 gdbm-devel.i686 libdbi-devel.i686 ncurses-libs zlib-devel.i686
+
+找不到libdbi-devel.i686，那就先去掉这个模块再安装
+
+再次./configure make之后，还是报问题：
+```composer log
+Python build finished, but the necessary bits to build these modules were not found:
+_bsddb             bsddb185           dl
+imageop            nis                sunaudiodev
+```
+
+#### make install 报错
+```composer log
+if test "xno" != "xno"  ; then \
+        case no in \
+                upgrade) ensurepip="--upgrade" ;; \
+                install|*) ensurepip="" ;; \
+        esac; \
+        LD_LIBRARY_PATH=/usr/local/python/Python-2.7.16 ./python -E -m ensurepip \
+                $ensurepip --root=/ ; \
+fi
+```
+
+显示以上日志之后就没有再继续执行，

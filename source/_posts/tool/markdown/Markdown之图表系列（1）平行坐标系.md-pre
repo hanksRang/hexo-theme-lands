@@ -1,0 +1,96 @@
+---
+title: Markdown之图表系列（1）平行坐标系
+date: 2022-07-29 17:38:44
+category:
+- tool
+- markdown
+  
+tags: Markdown之echarts系列（1）平行坐标系
+
+---
+
+```text
+```echarts
+{
+	 "title": {
+        "text": "基础平行坐标系"
+    }, 
+	 "toolbox": {
+        "show": true, 
+        "feature": {
+            "mark": {
+                "show": true
+            }, 
+            "dataView": {
+                "show": true, 
+                "readOnly": false
+            }, 
+            "restore": {
+                "show": true
+            }, 
+            "saveAsImage": {
+                "show": true
+            }
+        }
+    },  
+    "tooltip": {
+        "position": "top"
+    }, 
+    "parallelAxis": [
+        {
+            "dim": 0, 
+            "name": "Price"
+        }, 
+        {
+            "dim": 1, 
+            "name": "Net Weight"
+        }, 
+        {
+            "dim": 2, 
+            "name": "Amount"
+        }, 
+        {
+            "dim": 3, 
+            "name": "Score", 
+            "type": "category", 
+            "data": [
+                "Excellent", 
+                "Good", 
+                "OK", 
+                "Bad"
+            ]
+        }
+    ], 
+    "series": {
+        "type": "parallel", 
+        "lineStyle": {
+			"normal": {
+				"width": 4,
+				"opacity": 0.5
+			}
+		}, 
+        "data": [
+            [
+                12.99, 
+                100, 
+                82, 
+                "Good"
+            ], 
+            [
+                9.99, 
+                80, 
+                77, 
+                "OK"
+            ], 
+            [
+                20, 
+                120, 
+                60, 
+                "Excellent"
+            ]
+        ]
+    }
+}
+```
+```
+

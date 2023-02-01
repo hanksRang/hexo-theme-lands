@@ -1,0 +1,7 @@
+
+<div id="popup" style="position: fixed; top: 0px; cursor: pointer; ">
+    <a style="position: absolute; display: none; left: -100px; top: 50%; color: #0b1c39; " href="javascript:void(0);" id="preView">上一张</a>
+    <img id="popImg" style="z-index: 1000; width: 100%; border: 2px solid #cccccc; "  src="" alt=""/>
+    <a style="position: absolute; display: none; right: -100px; top: 50%; color: #0b1c39; " href="javascript:void(0);" id="nxtView">下一张</a>
+</div>
+

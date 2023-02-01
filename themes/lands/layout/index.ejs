@@ -1,0 +1,73 @@
+
+    <!-- ? Preloader Start -->
+<!--    <div id="preloader-active">-->
+<!--        <div class="preloader d-flex align-items-center justify-content-center">-->
+<!--            <div class="preloader-inner position-relative">-->
+<!--                <div class="preloader-circle"></div>-->
+<!--                <div class="preloader-img pere-text">-->
+<!--                    <img class="lazyload" data-src="assets/img/logo/loder.png"  alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div> -->
+    <!-- Preloader Start-->
+    <%- partial('_partial/body-header')%>
+    <main>
+        <!-- Banner News Area Start -->
+        <!-- Banner News Area End -->
+        <!-- Latest Posts Area -->
+        <%- partial('_partial/indexSearch')%>
+        <div class="latest-posts">
+            <div class="" style="width: 80%; margin: 0 auto; ">
+
+                <!-- Slider -->
+                <%- partial("_partial/index-latest")%>
+            </div>
+        </div>
+<!--        <div class="emotion" style="width: 80%; margin: 0px auto; text-align: left; ">-->
+<!--            <p>过去都是假的，回想是一条没有归途的路，以往的一切春天都无法复原，即便最狂乱且坚韧的爱情，归根结底也不过是一种瞬息即逝的理想，唯有孤独永恒。-->
+<!--            </p>-->
+<!--            <p style="text-align: right; ">—— 《百年孤独》 加西亚·马尔克斯（哥伦比亚）</p>-->
+<!--        </div>-->
+        <!-- Latest Posts End-->
+        <!-- ads begin -->
+        <!-- post-article-ads-hor -->
+        <%- partial("_partial/ads")%>
+        <%- partial("_partial/index-body")%>
+        <!-- ads end -->
+        <!-- Video Area Start -->
+        <%#- partial("_partial/index-video")%>
+        <!-- Video Area End -->
+        <!-- Nwes slider Start -->
+        <%#- partial("_partial/news-slider")%>
+        <!-- Nwes slider End -->
+        <!-- Top Posts Start -->
+        <%#- partial("_partial/index-top")%>
+        <!-- Top Posts End -->
+        <!-- categories Posts Area -->
+        <%#- partial("_partial/index-cate-post")%>
+        <!-- Latest Posts End-->
+        <!-- Want To work -->
+        <section class="wantToWork-area gray-bg ">
+            <%- partial("_partial/subscribe")%>
+        </section>
+        <!-- Want To work End -->
+
+    </main>
+
+    <style type="text/css">
+        .emotion {
+            background-color: #e9ecef;
+            opacity: 50%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .emotion p {
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #000000 ;
+        }
+    </style>

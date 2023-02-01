@@ -1,0 +1,24 @@
+<div class="nes-slider-area pb-20 pt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>News Slider</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="news-slider-active">
+                    <% site.posts.sort('date', theme.home_page_sort).filter(post => post.gallery != null).limit(7).each(function(post){ %>
+                    <div class="single-news-slider">
+                        <div class="news-img">
+                            <a href="<%- url_for(post.path) %>" style="display: inline-block; "><img style=" width: 200px; " src="<%= post.preGallery%>" data-src="<%= post.gallery%>" alt=""></a>
+                        </div>
+                    </div>
+                    <%})%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

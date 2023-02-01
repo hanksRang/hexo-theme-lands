@@ -1,0 +1,33 @@
+@startuml
+digraph btree {
+    graph [nodesep=1.5, pad=0.5, ranksep=1]
+    node [shape=circle, style=bold, fontsize=22, fontname=Consolas, width=1.2, height=1.2]
+    A -> B
+    n_0[width=0.1, height=0.1, shape=point, style=invis]
+    A -> n_0[weight=10, style=invis]
+    A -> C
+    B -> D
+    n0[width=0.1, height=0.1, shape=point, style=invis]
+    B -> n0[weight=10, style=invis]
+    n1[width=0.1, height=0.1, shape=point, style=invis]
+    D -> n1[weight=10, style=invis]
+    D -> G[weight=10]
+    C -> E
+    n2[width=0.1, height=0.1, shape=point, style=invis]
+    C -> n2[weight=10, style=invis]
+    C -> F
+    n3[width=0.1, height=0.1, shape=point, style=invis]
+    E -> n3[weight=10, style=invis]
+    E -> H
+    n4[width=0.1, height=0.1, shape=point, style=invis]
+    F -> n4[weight=10, style=invis]
+    n5[width=0.1, height=0.1, shape=point, style=invis]
+    F -> n5[weight=10, style=invis]
+
+
+    G -> D[style=dotted, color="blue", headport="s", constraint=false]
+    D -> B[style=dotted, color="blue", headport="w", constraint=false]
+    G -> C[style=dotted, color="blue", tailport="s", headport="e", weight=10, constraint=false]
+
+};
+@enduml

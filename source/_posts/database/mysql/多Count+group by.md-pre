@@ -1,0 +1,40 @@
+---
+title: 多Count+group by.md-pre
+date: 2022-06-28 11:29:15
+category:
+- database
+- mysql
+
+tags: 多Count+group by.md-pre
+
+---
+
+```sql
+
+SET @rownum = 0;
+select @rownum:= @rownum + 1 AS rownum, a_plus, a, a_sub, b_plus, b, b_sub, c_plus, c, c_sub, HH.school_name from (
+SELECT a_plus, a, a_sub, b_plus, b, b_sub, c_plus, c, c_sub, SS.school_name 
+from 
+(select S.school_name from baike_en.xue_ke_ping_gu_4 AS S group by S.school_name) AS SS
+left join (SELECT count(grade) a_plus, A.school_name FROM baike_en.xue_ke_ping_gu_4 AS A
+where A.grade like '%A+%' group by A.school_name) AS AA 
+on SS.school_name = AA.school_name
+left join (SELECT count(grade) a, B.school_name FROM baike_en.xue_ke_ping_gu_4 AS B where grade like '%A%' group by B.school_name) AS BB 
+on SS.school_name = BB.school_name 
+left join  (SELECT count(grade) a_sub, C.school_name FROM baike_en.xue_ke_ping_gu_4 AS C where grade like '%A-%' group by C.school_name) AS CC
+on SS.school_name = CC.school_name
+left join  (SELECT count(grade) b_plus, D.school_name FROM baike_en.xue_ke_ping_gu_4 AS D where grade like '%B+%' group by D.school_name) AS DD
+on SS.school_name = DD.school_name
+left join  (SELECT count(grade) b, E.school_name FROM baike_en.xue_ke_ping_gu_4 AS E where grade like '%B%' group by E.school_name) AS EE
+on SS.school_name = EE.school_name
+left join  (SELECT count(grade) b_sub, F.school_name FROM baike_en.xue_ke_ping_gu_4 AS F where grade like '%B-%' group by F.school_name) AS FF
+on SS.school_name = FF.school_name
+left join  (SELECT count(grade) c_plus, G.school_name FROM baike_en.xue_ke_ping_gu_4 AS G where grade like '%C+%' group by G.school_name) AS GG
+on SS.school_name = GG.school_name
+left join  (SELECT count(grade) c, I.school_name FROM baike_en.xue_ke_ping_gu_4 AS I where grade like '%C%' group by I.school_name) AS II
+on SS.school_name = II.school_name
+left join  (SELECT count(grade) c_sub, J.school_name FROM baike_en.xue_ke_ping_gu_4 AS J where grade like '%C-%' group by J.school_name) AS JJ
+on SS.school_name = JJ.school_name
+order by a_plus desc, a desc, a_sub desc, b_plus desc, b desc, b_sub desc, c_plus desc, c desc, c_sub desc) AS HH
+;
+```

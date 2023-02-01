@@ -1,0 +1,29 @@
+.ruankao-opt-wrapper {
+    margin-bottom: 30px;
+    color: #999999;
+    display: flex;
+}
+
+.ruankao-opt-wrapper span {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.subject span {
+    margin-right: 30px;
+
+}
+
+.right {
+    color: green;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+.ruankao-opt-wrapper p {
+    color: #999999;
+    width: 50%;
+}
+
+

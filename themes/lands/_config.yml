@@ -1,0 +1,211 @@
+# site name
+site_name: 张洪科's Blog
+short_name: H
+
+# Master info. It won't work if the one from (author|authorLink|avatar|authorDesc) be written in post.md
+webmaster:
+  name: hanks
+  avatar: /images/favicon.png
+  home: http://lands.hongkezhang.com
+  desc: Build the next 5 years
+
+# CSP Mode, true means #Content-Security-Policy = upgrade-insecure-requests# in meat tag
+csp_enable: true
+
+# Read Mode. day or night
+read_mode: day
+
+# favicon
+favicon: /images/
+# unique avatar
+avatar_show: false
+avatar_image: /images/
+
+# Home page sort type: -1: newer first，1: older first.
+home_page_sort: -1
+# Home page article shown number
+home_article_shown: 10
+
+# your site build time or domain buy time
+site_building_time: 01/20/2018
+
+# Top navigate menu name
+## Notice:
+## Name order decide show index.The name also called category alias,so you must set category alias before start server.
+## BTW,'category_map' and 'tag_map' field in site '_config.yml' file must one to one correspondence with menus below.
+menu:
+   # lifestyle: Lifestyle
+   backend: 后端
+   frontend: 前端
+   cs: 计算机
+   database: 数据库
+   server: 服务器
+   sitebuilding: 建站
+   frontline: 前沿科技
+   # thirdparty: 第三方
+   tool: 工具
+   others: 其他
+   baike: 百科
+   graduate: 考研
+   literature: 文学
+
+subMenu:
+    distribution: 分布式
+    dubbo: dubbo
+    hibernate: hibernate
+    javabase: java基础
+    javamultiple: java多线程
+    mybatis: mybatis
+    python: python
+    redis: redis
+    security: security
+    spring: spring
+    ds: 数据结构
+    hardware: 硬件
+    encrypt: 加密
+    linux: linux
+    mac: mac
+    network: 网络
+    ruankao: 软考
+    windows: windows
+    db2: db2
+    mongodb: mongodb
+    mysql: mysql
+    oracle: oracle
+    sqlserver: sqlserver
+    ajax: ajax
+    antdesign: antdesign
+    audio: 音频
+    css: css
+    elementui: elementui
+    flash: flash
+    html: html
+    html5: html5
+    js: javascript
+    vue: vue
+    ai: AI
+    bigdata: 大数据
+    blockchain: 区块链
+    apache: apache
+    nginx: nginx
+    nodejs: nodejs
+    tomcat: tomcat
+    design: 设计
+    googleads: google adsense
+    hexo: hexo
+    seo: 搜索优化
+    wordpress: wordpress
+    wechat: 微信开发
+    git: git
+    gitlab: gitlab
+    gradle: gradle
+    maven: maven
+    reverse: 逆向工程
+    svn: svn
+    uml: UML建模
+    # baike
+    sports: 体育
+    astronomy: 天文
+    finance: 财经
+    # 考研
+    english: 考研英语
+    math: 数学
+    gdcmps: 计算机
+    # 其他
+    otenglish: 英语
+    engbooks: 英语小说
+    chibooks: 中文小说
+    tangpoem: 唐诗300首
+    songci: 宋词300首
+    metaverse: 元宇宙
+    geography: 地理
+    xuekepinggu: 学科评估
+
+# Customize left navigation menus. faName is FontAwesome style name
+left_nav_menus:
+- uri: help
+  title: 帮助
+  faName: fa-question-circle
+
+
+# cover info config
+cover_title: Inspiration
+cover_description: 激情、理想，人生不止有工作，还有诗和远方
+
+# cover sns info
+#sns:
+        # telegram: https://t.me/kunyintang
+        # twitter: https://twitter.com/tangkunyin
+        #github: https://github.com/tangkunyin
+        #stack-overflow: https://stackoverflow.com/users/6133063/tangkunyin
+  
+
+# page pop qrcode
+# donateImg: /images/donate-qr.png
+snsQRCode: 
+
+# article declare. default content in languages
+post_declare: true
+
+# Local search
+# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+local_search:
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # unescape html strings to the readable one
+  unescape: false
+
+## Analytics setting. Google default
+analytics:
+  enable: false
+  google_analytics_id:
+
+## Google AdSense.
+adsense:
+  auto: true
+  client_id: ca-pub-6077761457447046
+  page_tb_id:
+  archive_id:
+  tags_id:
+  post_inner_id:
+  post_left_id:
+  post_right_id:
+
+
+## Comments settings. Disqus
+##                  | Gitment（Introduction: https://imsun.net/posts/gitment-introduction/）
+##                  | gitalk  (Official website: https://gitalk.github.io/)
+comments:
+  enable: true
+  disqus_shortname:
+  gitalk:
+    on: true
+    clientID:
+    clientSecret:
+    owner:
+    repo:
+    admin: ['your name']
+    perPage: 6
+    pagerDirection: 'last'
+  gitment:
+    repo:
+    githubID:
+    ClientID:
+    ClientSecret:
+    lazy: true
+
+# Git-pages server info (Coding Pages|Github Pages)
+server_name:
+server_url:
+
+mathjax:
+   enable: false
+
+## Baidu ziyuan auto-commit. see https://ziyuan.baidu.com/
+baidu_auto_push: false
+
+## MIIT Info. see https://beian.miit.gov.cn/#/Integrated/index
+miit_license: ## 例：京ICP备xxxxx号

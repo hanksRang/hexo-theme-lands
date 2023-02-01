@@ -1,0 +1,43 @@
+@startmindmap
+
+scale 1000 width
+
+!include plantuml-themes/sketchy/puml-theme-sketchy.puml
+
+<style>
+
+mindmapDiagram {
+    fontColor: #000000
+    fontSize: 70
+height: 10px
+BackgroundColor #ffffff
+latter-spacing 10
+
+.zero {
+BackgroundColor lightGray
+fontColor: Navy
+}
+
+.first {
+BackgroundColor cadetBlue
+}
+.second {
+    BackgroundColor DarkSeaGreen
+  }
+  .third {
+    BackgroundColor lightSteelBlue
+  }
+</style>
+
++ JAVA SPI <<zero>>
+++ 需要一个目录 <<first>>
++++ METE-INFO/services <<first>>
++++ 放到classpath下面 <<first>>
+++ 目录下面放一个配置文件 <<second>>
++++ 文件名是要扩展的接口全名 <<second>>
++++ 文件内部是要实现的接口对应的实现类 <<second>>
++++ 文件必须为UTF-8编码 <<second>>
+++ 如何使用 <<third>>
++++ ServiceLoader<XXX> load = ServiceLoader.load(XXX.class); <<third>>
+
+@endmindmap

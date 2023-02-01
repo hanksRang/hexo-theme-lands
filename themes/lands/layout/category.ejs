@@ -1,0 +1,122 @@
+<%- partial("_partial/body-header")%>
+<main>
+    <%- partial("_partial/breadAndSearch")%>
+    <!-- Top Posts Start -->
+    <div class="top-post-area" style="width: 80%; margin: 0 auto; ">
+        <div class="" style="width: 100%;  ">
+            <div id="cat-items" class="">
+                <% page.posts.sort('date', theme.home_page_sort).each(function(post){ %>
+                    <%= post.categories[1]%>
+                    <% if(post.content.length > 0) { %>
+                        <div class="single-job-items mb-30" style="width: 100%; ">
+                            <div class="job-items">
+                                <div class="job-tittle" style="padding-left: 0px; width: 100%;">
+                                    <a href="<%- url_for(post.path) %>">
+                                        <p class="cat-link" style="display: block; width: 100%; line-height: 100%; font-size: 16px; color: #062c33; ">
+                                            <%= post.title %></p>
+                                        <p style="color: #cccccc; margin-top: 15px; "><%= post.description %>...</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <%} %>
+                <% }) %>
+<!--                <div class="col-lg-3 col-md-3">-->
+<!--                    <div class="google-add mb-40">-->
+<!--                        <img src="/assets/img/gallery/Ad.png" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+            <div id="pages" class="pb-40" style="color: #062c33; ">
+                <% if (page.total > 1){ %>
+                    <div style="width: 100%; text-align: center; ">
+                        <% var prev_text = __('prev');var next_text = __('next') %>
+                        <%- paginator({
+                            prev_text: prev_text,
+                            next_text: next_text
+                        }) %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <!-- Top Posts End -->
+    <!--Pagination Start  -->
+<!--    <div class="pagination-area text-center">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-xl-12">-->
+<!--                    <div class="single-wrap d-flex justify-content-center">-->
+<!--                        <nav aria-label="Page navigation example">-->
+<!--                            <ul class="pagination justify-content-start " id="myDIV">-->
+
+<!--                                <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-left"></span></a></li>-->
+<!--                                <li class="page-item active"><a class="page-link" href="#">01</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#">02</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#">03</a></li>-->
+<!--                                <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>-->
+<!--                            </ul>-->
+<!--                        </nav>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!--Pagination End  -->
+    <!-- Nwes slider Start -->
+    <%#- partial("_partial/news-slider")%>
+    <!-- ads begin -->
+    <!-- post-article-ads-hor -->
+    <%- partial("_partial/ads")%>
+    <!-- ads end -->
+    <!-- Nwes slider End -->
+    <!-- Latest Posts Area -->
+    <%#- partial("_partial/latest-post")%>
+    <!-- Latest Posts End-->
+    <!-- Want To work -->
+    <section class="wantToWork-area gray-bg ">
+        <%- partial("_partial/subscribe")%>
+    </section>
+    <!-- Want To work End -->
+</main>
+<style type="text/css">
+    .cat-link::first-letter {
+        color: darkgray;
+        font-size: 2em;
+        float:left;
+        margin: 0 5px 0 0;
+    }
+
+    .extend .next {
+        color: #062c33;
+    }
+
+    .page-number {
+        color: #062c33;
+    }
+
+    .page-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: #cccccc;
+        margin: 0 10px 0 10px;
+    }
+
+    .page-number:hover {
+        background-color: #062c33;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .current {
+        background-color: #062c33;
+        color: #ffffff;
+    }
+
+    em {
+        color: dodgerblue;
+    }
+
+</style>

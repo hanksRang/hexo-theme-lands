@@ -1,0 +1,19 @@
+digraph {
+    graph [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5,
+        labeljust=center, dip=720, width=10.0, nodesep=2.0]
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, nodesep=1]
+
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+    Ship [label = "{Ship | + name: String\l | + run(): void\l}", width=1.5]
+    Car [label = "{Car | + name: String\l | + run(): void\l}", width=1.5]
+    Vehicle [label = "{Vehicle | + run(): void\l}", width=1.5]
+
+    /* Unidirecitonal association */
+    {
+        edge [arrowhead=empty, style=dashed, arrowtail=onormal, dir=back, len=1.2]
+        Vehicle -> {  Ship, Car }
+    }
+
+}
+

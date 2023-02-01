@@ -1,0 +1,110 @@
+@startuml
+'引入主题'
+!include ../sketchy-outline/puml-theme-sketchy-outline.puml
+scale 1080*1680
+
+left to right direction
+
+Car <|-up- Bus
+Car <|-up- Taxi
+
+class Car {
++ name: String
++ drivers(): List
+}
+
+class Bus {
+
+}
+
+class Taxi {
+
+}
+
+Car .up.|> Vehicle
+Vehicle <|.. Ship
+
+interface Vehicle {
++ dirvers(): List
+}
+
+class Car {
++ name: String
++ drivers(): List
+}
+
+class Ship {
++ name: String
++ drivers(): List
+}
+
+Head --* Human
+Body --* Human
+
+together {
+class Head
+class Body
+}
+
+Head -[hidden]> Body
+
+class Human {
++ head: Head
++ body: Body
++ setHead(head: Head)
++ setBody(body: Body)
+}
+
+class Head {
+height
+}
+
+class Body {
+
+}
+
+BusDriver o-- Clothes
+BusDriver o-- Hat
+
+class BusDriver {
++ clothes: Clothes
++ hat: Hat
+}
+
+class Clothes {
++ name
+}
+
+class Hat {
++ name
+}
+
+Car "1"  -right- "n"  Driver : Association
+
+class Car {
++ dirvers: Array
++ addDriver(driver: Driver)
+}
+
+class Driver {
++ cars: Array
++ addCar(car: Car)
+}
+
+Car ..> Oil : dependency
+
+class Car {
++ name: String
++ addOil()
+}
+
+class Oil {
++ type: Integer
++ price: Decimal
+}
+
+Driver .up.|> Human : implement
+
+Driver <|-- BusDriver : extend
+
+@enduml

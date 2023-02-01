@@ -1,0 +1,68 @@
+<div id="post-container">
+<%- partial("_partial/body-header")%>
+<main>
+    <!-- breadcrumb Start-->
+    <%- partial("breadAndSearch")%>
+    <!-- breadcrumb End -->
+    <!-- Post Details Stat -->
+    <div id="markdown-content-wrapper-super" style="display: flex; margin: 0 auto; width: 80%; text-align: center; ">
+        <div class="pb-40" id="markdown-content-wrapper" style="width: 70%; margin: 0 auto; text-align: left; ">
+            <div class="">
+                <div id="markdown-content" class="about-details-cap page-content markdown-body">
+                    <img src="<%= page.preCover %>" style="display: none; "/>
+                    <h3 style="width: 80%; margin: 0 auto;  margin-bottom: 10px; text-align: center; border-bottom: none; "><%= page.title %></h3>
+                    <p style="color: #cccccc; text-align: center; "><%= page.date %></p>
+                    <%- page.content %>
+                </div>
+            </div>
+        </div>
+        <div id="you-may-like" class="mt-10 you-may-like" style="text-align: center; width: 30%; padding-left: 2.5%; ">
+            <p>猜你喜欢</p>
+            <!--            <p style="color: #cccccc; "><%#= page.categories.first().name %></p>-->
+            <%let arr1 = []%>
+            <% page.categories.each(function (x) { %>
+            <%arr1.push(x.name)%>
+            <%})%>
+            <div>
+                <% site.posts.random().filter(x => {
+                    arr2 = []
+                    x.categories.each(function (s){
+                        arr2.push(s.name)
+                    })
+                    // console.log(arr2[0])
+                    return arr1[1] == arr2[1]
+                }).limit(5).each(function(post){ %>
+                    <div style="font-size: 14px; color: #5a6268; text-align: left; padding: 5px 0;">
+                        <a style="color: #5a6268; width: 100%; " href="<%- url_for(post.path) %>"><%= post.title%></a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <!-- ads begin -->
+    <!-- post-article-ads-hor -->
+    <%#- partial("_partial/ads")%>
+    <!-- ads end -->
+    <!-- Post Details End -->
+    <!--comments Area -->
+    <%#- partial("_partial/comments")%>
+    <!--comments Area End -->
+    <!-- Latest Posts Area -->
+    <%#- partial("_partial/latest-post")%>
+    <!-- Latest Posts End-->
+    <!-- Want To work -->
+    <section class="wantToWork-area gray-bg ">
+        <%- partial("_partial/subscribe")%>
+    </section>
+    <!-- Want To work End -->
+</main>
+</div>
+<style type="text/css">
+    .post-category-list-count {
+        display: none;
+    }
+
+    a:hover{
+        color: #0b1c39;
+    }
+</style>

@@ -1,0 +1,189 @@
+<header>
+    <!-- Header Start -->
+    <div class="header-area" style="width: 80%; margin: 0 auto; ">
+        <div class="main-header ">
+            <div class="header-bottom" style="padding: 0px; position: relative;">
+                <div class="">
+                    <div class="">
+                        <div class="" style="">
+                            <!-- logo 2 -->
+                            <div class="logo2">
+                                <a href="/" style="display: block; font-size: 40px; color: #140C40; "><b>Programm</b><b style="color: #cccccc; ">ing</b></a>
+                            </div>
+                            <!-- logo 3 -->
+                            <div class="logo3 d-block d-sm-none">
+                                <a id="topIndex" href="/" style="display: block; font-size: 40px; color: #140C40; "><b>Programm</b><b style="color: #cccccc; ">ing</b></a>
+                            </div>
+                            <!-- Main-menu -->
+                            <div id="menu-area" class="main-menu text-left d-lg-block" style="width: 70%; margin: 0 auto;  ">
+                                <div style="position: absolute; left: 0px; top: 10px;">
+                                    <a href="/" style=" font-size: 30px; color: #014b85;  ">
+                                        <b style="color: #e96900; ">即</b>
+                                        <b style="color: #999999; ">刻</b>
+                                        <b style="color: #062c33; ">编</b>
+                                        <b style="color: #71dd8a; ">程</b></a>
+                                </div>
+                                <%var subMenuArr = [] %>
+                                <% for (var name in theme.subMenu){ %>
+                                    <%subMenuArr.push(name + "#" + theme.subMenu[name])%>
+                            <%}%>
+                                    <%var arr = [] %>
+                                    <% for (var name in theme.menu){ %>
+
+                                            <a style="padding: 16px 10px 0px 0px; font-size: 16px; display: inline-block; color: #062c33; " id="menu<%= name%>" href="/categories/<%= name %>" data-name="<%= name %>"><%= theme.menu[name] %></a>
+
+                                        <% arr.push(name + "#" + theme.menu[name]) %>
+                                    <% } %>
+                                <% if (site.categories.length){ %>
+                                    <div id="category-block" class="category-block" style="color: #cccccc; text-align: left; margin-bottom: 10px; ">
+                                        <%- list_categories(site.categories, {
+                                            class: 'post-category',
+                                            depth: 2,
+                                        })%>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="" style="">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+
+
+
+<script type="text/javascript">
+    setTimeout(closeLoding, 3000)
+
+    function closeLoding() {
+        document.getElementById("preloader-active").style.display = "none"
+    }
+
+    const url = location.href;
+    console.log(url)
+    let  cats = "<%=arr%>".split(",");
+    cats.forEach(rewrite)
+    function rewrite(item, index) {
+        let nameItemArr = item.split("#")
+        console.log("item: " + nameItemArr[0])
+        if (url.indexOf("/" + nameItemArr[0] + "/") > 0) {
+            // alert(nameItemArr[0])
+            // document.getElementById("menu" + nameItemArr[0]).style.fontWeight = "bold"
+            // document.getElementById("menu" + nameItemArr[0]).style.fontSize = "20px"
+            document.getElementById("menu" + nameItemArr[0]).style.color = "#e96900"
+        }
+    }
+
+    // document.getElementById("menubackend").style.color = "#e96900"
+    // document.getElementById("menufrontend").style.color = "#b1dfbb"
+    // document.getElementById("menucs").style.color = "#999999"
+    // document.getElementById("menudatabase").style.color = "#062c33"
+    // document.getElementById("menuserver").style.color = "#71dd8a"
+    // document.getElementById("menusitebuilding").style.color = "#cccccc"
+
+    let cateBlock = document.getElementById("category-block")
+    // alert(cateBlock.childNodes.length)
+    for (var i = 0; i < cateBlock.childNodes.length; i ++) {
+        console.log(cateBlock.childNodes[i].tagName)
+        var firstClass = cateBlock.childNodes[i]
+        if (firstClass.tagName == 'UL') {
+            for (var j = 0; j < firstClass.childNodes.length; j ++) {
+
+                // console.log(firstClass.childNodes[j].tagName)
+                var cateText = firstClass.childNodes[j].childNodes[0].innerHTML
+                if (url.indexOf("/" + cateText) > 0) {
+                    console.log(cateText)
+                    firstClass.childNodes[j].childNodes[0].style.display = "none"
+                    firstClass.childNodes[j].childNodes[1].style.display = "none"
+                    let nodeUL = firstClass.childNodes[j].childNodes[2]
+                    for (var h = 0; h < nodeUL.childNodes.length; h ++) {
+                        var nodeLiAText = nodeUL.childNodes[h].childNodes[0].innerHTML
+                        var subMenuArr = "<%= subMenuArr%>".split(",")
+                        // 显示二级中文名
+                        subMenuArr.forEach(function (item){
+                            // var itemName = item[nodeLiAText]
+                            enName = item.split("#")[0]
+                            cnName = item.split("#")[1]
+                            if (enName === nodeLiAText) {
+                                nodeUL.childNodes[h].childNodes[0].innerHTML = cnName
+                            }
+                            console.log("cnName: " + cnName)
+
+                        })
+                        if (url.indexOf("/" + nodeLiAText) > 0) {
+                            nodeUL.childNodes[h].childNodes[0].style.color = "#e96900"
+                        }
+                    }
+                } else {
+                    firstClass.childNodes[j].style.display = "none"
+                }
+            }
+        }
+    }
+    // let cateItems = cateBlock.querySelectorAll(".post-category-list")
+    // cateItems.forEach(function (item){
+    //     let lis = item.querySelectorAll("li")
+    //     console.log(item.children[0].innerHTML)
+    //
+    // })
+
+    window.addEventListener('resize', () => { //监听浏览器窗口大小改变
+        resize();
+    });
+
+    function resize() {
+        if (window.innerWidth < 700) {
+            var headerArea = document.getElementById("menu-area");
+            if (headerArea != undefined) {
+                headerArea.style.display = "none";
+            }
+            var siteTitle = document.getElementById("site-title");
+            if (siteTitle != undefined) {
+                siteTitle.style.display = "none"
+            }
+        } else {
+            var headerArea = document.getElementById("menu-area");
+            if (headerArea != null) {
+                headerArea.style.display = "block";
+            }
+            var siteTitle = document.getElementById("site-title");
+            if (siteTitle != undefined) {
+                siteTitle.style.display = "block"
+            }
+        }
+    }
+
+    if (window.innerWidth < 700) {
+        var headerArea = document.getElementById("menu-area");
+        if (headerArea != null) {
+            headerArea.style.display = "none";
+        }
+        var siteTitle = document.getElementById("site-title");
+        if (siteTitle != undefined) {
+            siteTitle.style.display = "none"
+        }
+    } else {
+        var headerArea = document.getElementById("menu-area");
+        if (headerArea != null) {
+            headerArea.style.display = "block";
+        }
+        var siteTitle = document.getElementById("site-title");
+        if (siteTitle != undefined) {
+            siteTitle.style.display = "block"
+        }
+    }
+</script>
+
+<style type="text/css">
+    .post-category-list-item a{
+        display: inline-block;
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+</style>

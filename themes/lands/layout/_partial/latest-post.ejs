@@ -1,0 +1,62 @@
+<div class="latest-posts pt-40 pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-tittle mb-35">
+                    <h2>Latest Posts</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <% site.posts.sort('date', theme.home_page_sort).filter(x => x.gallery != null).limit(3).each(function(post){ %>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-baner-nw2 mb-30">
+                        <div class="banner-img-cap2">
+                            <div class="banner-img">
+                                <a href="<%- url_for(post.path) %>">
+                                    <img class="" src="<%= post.preGallery%>" data-src="<%= post.gallery%>" style="  height: 300px; " alt="">
+                                </a>
+                            </div>
+                            <div class="banner-cap2">
+                                <p><%= theme.menu[post.categories.first().name] %></p>
+                                <h3><a href="<%- url_for(post.path) %>"><%= post.title%></a></h3>
+                                <p class="blog-text" style="text-transform: normal !important;">
+                                    <a href="<%- url_for(post.path) %>" style="color: #999999; "><%= post.description%></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+            <!--                <div class="col-lg-4 col-md-6">-->
+            <!--                    <div class="single-baner-nw2 mb-30">-->
+            <!--                        <div class="banner-img-cap2">-->
+            <!--                            <div class="banner-img">-->
+            <!--                                <img src="/assets/img/gallery/trend2.png" alt="">-->
+            <!--                            </div>-->
+            <!--                            <div class="banner-cap2">-->
+            <!--                                <p>Technology</p>-->
+            <!--                                <h3><a href="post_details.html">The pomelo case: scope of plant rights in China</a></h3>-->
+            <!--                                <p class="blog-text" style="text-transform: normal !important;">Indie folks start out by making something they want to read, that tell stories they want told..</p>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-4 col-md-6">-->
+            <!--                    <div class="single-baner-nw2 mb-30">-->
+            <!--                        <div class="banner-img-cap2">-->
+            <!--                            <div class="banner-img">-->
+            <!--                                <img src="/assets/img/gallery/trend3.png" alt="">-->
+            <!--                            </div>-->
+            <!--                            <div class="banner-cap2">-->
+            <!--                                <p>Technology</p>-->
+            <!--                                <h3><a href="post_details.html">The pomelo case: scope of plant rights in China</a></h3>-->
+            <!--                                <p class="blog-text" style="text-transform: normal !;">Indie folks start out by making something they want to read, that tell stories they want told..</p>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+        </div>
+    </div>
+</div>

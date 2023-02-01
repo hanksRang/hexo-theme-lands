@@ -1,0 +1,19 @@
+@startuml
+digraph btree {
+    graph [nodesep=1.5, pad=2, ranksep=1, label="树"]
+    node [shape=circle, style=bold, fontsize=22, fontname=Consolas, width=1.2, height=1.2]
+    a -> b
+    n_0[width=0.1, height=0.1, shape=point, style=invis]
+    a -> n_0[weight=10, style=invis]
+    a -> c
+    b -> d
+    n0[width=0.1, height=0.1, shape=point, style=invis]
+    b -> n0[weight=10, style=invis]
+    b -> e
+    e -> u
+    e -> v
+    e -> w
+    c -> f
+
+};
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+'引入主题，单行注释用一对单引号引起来'
+!include ../sketchy-outline/puml-theme-sketchy-outline.puml
+scale 1080*720
+
+left to right direction
+
+Car "1"  -- "n"  Driver : Association
+
+class Car {
++ dirvers: Array
++ addDriver(driver: Driver)
+}
+
+class Driver {
++ cars: Array
++ addCar(car: Car)
+}
+
+@enduml

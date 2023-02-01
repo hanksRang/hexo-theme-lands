@@ -1,0 +1,55 @@
+---
+title: Markdown之图表系列（2）仪表盘
+date: 2022-07-29 17:38:44
+category:
+- tool
+- markdown
+
+tags: Markdown之echarts系列（2）仪表盘
+
+---
+
+```echarts
+{
+	"title": {
+        "text": "基础仪表盘示例", 
+        "subtext": "完成情况展示"
+    }, 
+	"toolbox": {
+        "show": true, 
+        "feature": {
+            "mark": {
+                "show": true
+            }, 
+            "dataView": {
+                "show": true, 
+                "readOnly": false
+            }, 
+            "restore": {
+                "show": true
+            }, 
+            "saveAsImage": {
+                "show": true
+            }
+        }
+    },  
+    "tooltip": {
+        "formatter": "{a} <br/>{b} : {c}%"
+    }, 
+    "series": [
+        {
+            "name": "业务指标", 
+            "type": "gauge", 
+            "detail": {
+                "formatter": "{value}%"
+            }, 
+            "data": [
+                {
+                    "value": 50, 
+                    "name": "完成率"
+                }
+            ]
+        }
+    ]
+}
+```

@@ -1,0 +1,25 @@
+@startuml
+
+!include ../sketchy-outline/puml-theme-sketchy-outline.puml
+scale 1080*720
+
+left to right direction
+
+Vehicle <|.. Car
+Vehicle <|.. Ship
+
+interface Vehicle {
++ dirvers(): List
+}
+
+class Car {
++ name: String
++ drivers(): List
+}
+
+class Ship {
++ name: String
++ drivers(): List
+}
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+'引入主题，单行注释用一对单引号引起来'
+!include ../sketchy-outline/puml-theme-sketchy-outline.puml
+scale 1080*720
+
+left to right direction
+BusDriver o-- Clothes
+BusDriver o-- Hat
+
+class BusDriver {
++ clothes: Clothes
++ hat: Hat
+}
+
+class Clothes {
++ name
+}
+
+class Hat {
++ name
+}
+
+@enduml

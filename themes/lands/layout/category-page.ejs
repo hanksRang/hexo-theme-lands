@@ -1,0 +1,17 @@
+<% page.posts.sort('date', theme.home_page_sort).filter(post => post.categories[1] != undefined && post.categories[1].name === 'distribution').each(function(post){ %>
+    <%= post.categories[1]%>
+    <% if(post.content.length > 0) { %>
+        <div class="single-job-items mb-30">
+            <div class="job-items">
+                <div class="company-img">
+                    <a href="<%- url_for(post.path) %>"><img src="<%= post.preCover%>" data-src="<%= post.cover%>" style="width: 264px; " alt=""></a>
+                </div>
+                <div class="job-tittle">
+                    <span>Trending</span>
+                    <a href="<%- url_for(post.path) %>"><h4><%= post.title %></h4></a>
+                    <p><%= post.description %>...</p>
+                </div>
+            </div>
+        </div>
+    <%} %>
+<% }) %>

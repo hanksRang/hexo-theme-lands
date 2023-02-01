@@ -1,0 +1,42 @@
+digraph {
+    label = "\n 拉链法";
+    rankdir = LR; // 布局从左到右
+    node [shape = record, height=4.95];
+    list [label = "<key0> 100 | <key1> 151 | <key2> 202 | <key3> 203 | <key4> 204 | <key5> 155 | <key6> NULL | <key7> 107 | <key8> 108 | <key9> 199 "];
+    
+    node [shape = record, height=0.28];
+    listnode41 [label = "<1> 234"]
+    listnode42 [label = "<1> 334"]
+    listnode43 [label = "<1> 614"]
+    listnode51 [label = "<1> 175"]
+    listnode52 [label = "<1> 185"]
+    listnode71 [label = "<1> 157"]
+    listnode81 [label = "<1> 178"]
+
+    node [shape = plaintext, height=0.28, label = "NULL", fontsize=12];
+    null0;    
+    null1;
+    null2;
+    null3;
+    null4;
+    null5;
+    null7;
+    null8;
+    null9;
+
+    list:key0 -> null0;
+    list:key1 -> null1; 
+    list:key2 -> null2;
+    list:key3 -> null3;    
+    list:key4 -> listnode41; listnode41 -> listnode42; listnode42 -> listnode43;
+    list:key5 -> listnode51; listnode51 -> listnode52;
+    list:key7 -> listnode71;
+    list:key8 -> listnode81;
+    list:key9 -> null9;
+    
+    listnode43:1 -> null4;
+    listnode52:1 -> null5;
+    listnode71:1 -> null7;
+    listnode81:1 -> null8;
+}
+

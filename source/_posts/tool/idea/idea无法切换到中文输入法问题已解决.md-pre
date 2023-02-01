@@ -1,0 +1,26 @@
+---
+title: idea无法切换到中文输入法问题已解决
+date: 2022-05-12 19:24:34
+category:
+- tool
+- idea
+
+tags: idea切换中文输入法方法
+
+---
+
+### 背景
+<p>最近我的idea在使用过程中总是出现用着用着无法切换中文的情况，于是决定着手解决一下。</p>
+
+### 解决办法
+<p>找到如下位置：</p>
+<img src='/iamges/tool/idea/idea无法切换到中文输入法问题已解决/img.png' />
+
+追加如下内容：
+<img src='/iamges/tool/idea/idea无法切换到中文输入法问题已解决/img_1.png' />
+
+```shell
+-Drecreate.x11.input.method=true
+```
+
+<p>重启idea</p>

@@ -1,0 +1,17 @@
+digraph {
+    graph [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5,
+         dip=720]
+    rankdir=LR
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+    Head [label = "{Head | <1>  + name:String\l| \l}"]
+    Body [label = "{Body | <1>  + name:String\l| \l}"]
+    Human [label = "{Human| <1>  + head: Head\l + body: Body\l |+ setHead(head: Head)\l + setBody(body: Body)\l + display(): String}"]
+
+    /* Unidirecitonal association */
+    
+        edge [arrowhead=diamond, arrowtail=normal]
+        Human:1 -> Head:1
+	Human:1 -> Body:1
+    
+}
+

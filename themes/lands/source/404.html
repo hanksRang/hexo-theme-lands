@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>404 - Not Found</title>
+    <style>
+        .whole {
+            width: 100%;
+            height: 100%;
+            line-height: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: -1000;
+            overflow: hidden;
+            padding-left: 10%;
+        }
+        .whole img {
+            width: 100%;
+            height: 100%;
+        }
+        .mask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+        .b {
+            width: 50%;
+            height: 300px;
+            text-align: left;
+            padding-left: 10%;
+            margin-top:20%;
+            color: #fff;
+        }
+        h1 {
+            font-size: 72px;
+        }
+        p {
+            color: #fff;
+            margin-top: 40px;
+            font-size: 24px;
+        }
+        #num {
+            margin: 0 5px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        var num = 5;
+        function redirect() {
+            num--;
+            document.getElementById("num").innerHTML = num;
+            if (num < 0) {
+                document.getElementById("num").innerHTML = 0;
+                location.href = "/";
+            }
+        }
+        setInterval("redirect()", 1000);
+    </script>
+</head>
+
+<body onload="redirect();">
+<div class="whole">
+    <h2>404 NOT FOUND</h2>
+</div>
+<div class="b">
+    <p style="color: #0b2e13; ">404 !</p>
+    <p style="color: #0b2e13; ">Page not found...</p>
+    <p style="color: #0b2e13; ">Return to home page after<span id="num"></span>seconds</p>
+</div>
+</body>
+</html>

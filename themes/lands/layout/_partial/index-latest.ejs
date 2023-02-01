@@ -1,0 +1,117 @@
+<div id="index-latests" style="width: 100%; margin: 0 auto 20px auto; text-align: center; ">
+            <div id="latest-slider" class="latest-slider" style="width: 100%; display: flex; ">
+                    <!-- Single slider -->
+                <div id="index-left-side" style="width: 50%; ">
+                    <% site.posts.sort('date', theme.home_page_sort).filter(x => x.categories.first() != undefined)
+                            .filter(x => x.developing == undefined)
+                            .limit(10).each(function(post){ %>
+
+                        <div class="single-baner-nw2 text-left">
+                            <div class="banner-img-cap2" style="text-align: left; ">
+                                <div class="" style="width: 100%; ">
+                                    <a href="<%- url_for(post.path) %>">
+                                        <img src="<%#= post.preCover%>" data-src="<%#= post.cover%>" style="width: 100%; " alt="">
+                                    </a>
+                                </div>
+                                <div class="" style=" width: 100%; text-align: left; ">
+                                    <% let cat = theme.menu[post.categories.first().name] %>
+                                    <% if (cat == '后端') {%>
+                                        <span style="color: #e96900; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '前端') {%>
+                                            <span style="color: #062c33; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '计算机') {%>
+                                        <span style="color: #71dd8a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '数据库') {%>
+                                        <span style="color: #dca73a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '服务器') {%>
+                                        <span style="color: #a367e7; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '建站') {%>
+                                        <span style="color: #38a4ff ; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '前沿科技') {%>
+                                        <span style="color: #17a2b8; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '工具') {%>
+                                        <span style="color: #b1dfbb; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '百科') {%>
+                                        <span style="color: #dca73a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '考研') {%>
+                                        <span style="color: #1c7430; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '其他') {%>
+                                        <span style="color: #ffe7ca; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '文学') {%>
+                                        <span style="color: #f1b0b7; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%}%>
+                                    <a class="indexLink" title="<%= post.title%>" style="display: inline-block; color: #062c33; line-height: 30px; word-break: keep-all; " href="<%- url_for(post.path) %>">
+                                        <%= post.title.slice(0, 18)%>...
+                                    </a>&nbsp;&nbsp;
+                                    <p class="datestr" style="display: inline-block; color: #cccccc; letter-spacing: 2px; "><%= post.date.format("YYYY年MM月DD日")%></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                <div id="index-right-side" style="width: 50%; ">
+                    <% site.posts.sort('date', theme.home_page_sort).filter(x => x.categories.first() != undefined).limit(20).slice(10, 20).each(function(post){ %>
+
+                        <div class="single-baner-nw2 text-left">
+                            <div class="banner-img-cap2" style="text-align: left; ">
+                                <div class="" style="width: 100%; ">
+                                    <a href="<%- url_for(post.path) %>">
+                                        <img src="<%#= post.preCover%>" data-src="<%#= post.cover%>" style="width: 100%; " alt="">
+                                    </a>
+                                </div>
+                                <div class="" style=" width: 100%; text-align: left; ">
+                                    <% let cat = theme.menu[post.categories.first().name] %>
+                                    <% if (cat == '后端') {%>
+                                        <span style="color: #e96900; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '前端') {%>
+                                        <span style="color: #062c33; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '计算机') {%>
+                                        <span style="color: #71dd8a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '数据库') {%>
+                                        <span style="color: #dca73a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '服务器') {%>
+                                        <span style="color: #a367e7; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '建站') {%>
+                                        <span style="color: #38a4ff; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '前沿科技') {%>
+                                        <span style="color: #17a2b8; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '工具') {%>
+                                        <span style="color: #b1dfbb; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '百科') {%>
+                                        <span style="color: #dca73a; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '考研') {%>
+                                        <span style="color: #1c7430; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '其他') {%>
+                                        <span style="color: #ffe7ca; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%} else if(cat == '文学') {%>
+                                        <span style="color: #f1b0b7; "><%= theme.menu[post.categories.first().name] %></span>&nbsp;&nbsp;
+                                    <%}%>
+                                    <a class="indexLink" title="<%= post.title%>" style="display: inline-block; color: #062c33; line-height: 30px; word-break: keep-all; " href="<%- url_for(post.path) %>">
+                                        <%= post.title.slice(0, 18)%>...
+                                    </a>&nbsp;&nbsp;
+                                    <p class="datestr" style="display: inline-block; color: #cccccc; letter-spacing: 2px; "><%= post.date.format("YYYY年MM月DD日")%></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+</div>
+
+<style type="text/css">
+    .indexLink:hover {
+        color: #062c33;
+    }
+
+    .indexLink::first-letter {
+        color: darkgray;
+        font-size: 2em;
+        float:left;
+        margin: 0 5px 0 0;
+    }
+
+    .banner-img-cap2 span {
+        font-weight: bold;
+    }
+
+</style>

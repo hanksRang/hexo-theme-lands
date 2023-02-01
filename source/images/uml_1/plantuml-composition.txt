@@ -1,0 +1,22 @@
+@startuml
+'引入主题，单行注释用一对单引号引起来'
+!include ../sketchy-outline/puml-theme-sketchy-outline.puml
+scale 1080*720
+
+left to right direction
+
+Human *-- Head
+Human *-- Body
+
+class Human {
++ head: Head
++ body: Body
++ setHead(head: Head)
++ setBody(body: Body)
+}
+
+class Head {
+height
+}
+
+@enduml

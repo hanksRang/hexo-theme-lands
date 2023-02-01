@@ -1,0 +1,601 @@
+---
+title: Markdown之图表系列（4）树形图
+date: 2022-07-29 17:38:44
+category:
+- tool
+- markdown
+
+tags: Markdown之echarts系列（4）树形图
+---
+```echarts
+{
+	"title": {
+        "text": "从上到下的树图"
+    }, 
+	 "toolbox": {
+        "show": true, 
+        "feature": {
+            "mark": {
+                "show": true
+            }, 
+            "dataView": {
+                "show": true, 
+                "readOnly": false
+            }, 
+            "restore": {
+                "show": true
+            }, 
+            "saveAsImage": {
+                "show": true
+            }
+        }
+    }, 
+    "tooltip": {
+        "trigger": "item", 
+        "triggerOn": "mousemove"
+    }, 
+    "series": [
+        {
+            "type": "tree", 
+            "data": [{
+  "name": "flare",
+  "children": [
+    {
+      "name": "analytics",
+      "children": [
+        {
+          "name": "cluster",
+          "children": [
+            {
+              "name": "AgglomerativeCluster",
+              "value": 3938
+            },
+            {
+              "name": "CommunityStructure",
+              "value": 3812
+            },
+            {
+              "name": "HierarchicalCluster",
+              "value": 6714
+            },
+            {
+              "name": "MergeEdge",
+              "value": 743
+            }
+          ]
+        },
+        {
+          "name": "graph",
+          "children": [
+            {
+              "name": "BetweennessCentrality",
+              "value": 3534
+            },
+            {
+              "name": "LinkDistance",
+              "value": 5731
+            },
+            {
+              "name": "MaxFlowMinCut",
+              "value": 7840
+            },
+            {
+              "name": "ShortestPaths",
+              "value": 5914
+            },
+            {
+              "name": "SpanningTree",
+              "value": 3416
+            }
+          ]
+        },
+        {
+          "name": "optimization",
+          "children": [
+            {
+              "name": "AspectRatioBanker",
+              "value": 7074
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "children": [
+        {
+          "name": "converters",
+          "children": [
+            {
+              "name": "Converters",
+              "value": 721
+            },
+            {
+              "name": "DelimitedTextConverter",
+              "value": 4294
+            },
+            {
+              "name": "GraphMLConverter",
+              "value": 9800
+            },
+            {
+              "name": "IDataConverter",
+              "value": 1314
+            },
+            {
+              "name": "JSONConverter",
+              "value": 2220
+            }
+          ]
+        },
+        {
+          "name": "DataField",
+          "value": 1759
+        },
+        {
+          "name": "DataSchema",
+          "value": 2165
+        },
+        {
+          "name": "DataSet",
+          "value": 586
+        },
+        {
+          "name": "DataSource",
+          "value": 3331
+        },
+        {
+          "name": "DataTable",
+          "value": 772
+        },
+        {
+          "name": "DataUtil",
+          "value": 3322
+        }
+      ]
+    },
+    {
+      "name": "display",
+      "children": [
+        {
+          "name": "DirtySprite",
+          "value": 8833
+        },
+        {
+          "name": "LineSprite",
+          "value": 1732
+        },
+        {
+          "name": "RectSprite",
+          "value": 3623
+        },
+        {
+          "name": "TextSprite",
+          "value": 10066
+        }
+      ]
+    },
+    {
+      "name": "flex",
+      "children": [
+        {
+          "name": "FlareVis",
+          "value": 4116
+        }
+      ]
+    },
+    {
+      "name": "physics",
+      "children": [
+        {
+          "name": "DragForce",
+          "value": 1082
+        },
+        {
+          "name": "GravityForce",
+          "value": 1336
+        },
+        {
+          "name": "IForce",
+          "value": 319
+        },
+        {
+          "name": "NBodyForce",
+          "value": 10498
+        },
+        {
+          "name": "Particle",
+          "value": 2822
+        },
+        {
+          "name": "Simulation",
+          "value": 9983
+        },
+        {
+          "name": "Spring",
+          "value": 2213
+        },
+        {
+          "name": "SpringForce",
+          "value": 1681
+        }
+      ]
+    },
+    {
+      "name": "scale",
+      "children": [
+        {
+          "name": "IScaleMap",
+          "value": 2105
+        },
+        {
+          "name": "LinearScale",
+          "value": 1316
+        },
+        {
+          "name": "LogScale",
+          "value": 3151
+        },
+        {
+          "name": "OrdinalScale",
+          "value": 3770
+        },
+        {
+          "name": "QuantileScale",
+          "value": 2435
+        },
+        {
+          "name": "QuantitativeScale",
+          "value": 4839
+        },
+        {
+          "name": "RootScale",
+          "value": 1756
+        },
+        {
+          "name": "Scale",
+          "value": 4268
+        },
+        {
+          "name": "ScaleType",
+          "value": 1821
+        },
+        {
+          "name": "TimeScale",
+          "value": 5833
+        }
+      ]
+    }
+  ]
+}], 
+            "left": "2%", 
+            "right": "2%", 
+            "top": "8%", 
+            "bottom": "20%", 
+            "symbol": "emptyCircle", 
+            "orient": "vertical", 
+            "expandAndCollapse": true, 
+            "label": {
+                "normal": {
+                    "position": "top", 
+                    "rotate": -90, 
+                    "verticalAlign": "middle", 
+                    "align": "right", 
+                    "fontSize": 9
+                }
+            }, 
+            "leaves": {
+                "label": {
+                    "normal": {
+                        "position": "bottom", 
+                        "rotate": -90, 
+                        "verticalAlign": "middle", 
+                        "align": "left"
+                    }
+                }
+            }, 
+            "animationDurationUpdate": 750
+        }
+    ]
+}
+```
+
+源码：
+
+```text
+```echarts
+{
+	"title": {
+        "text": "从上到下的树图"
+    }, 
+	 "toolbox": {
+        "show": true, 
+        "feature": {
+            "mark": {
+                "show": true
+            }, 
+            "dataView": {
+                "show": true, 
+                "readOnly": false
+            }, 
+            "restore": {
+                "show": true
+            }, 
+            "saveAsImage": {
+                "show": true
+            }
+        }
+    }, 
+    "tooltip": {
+        "trigger": "item", 
+        "triggerOn": "mousemove"
+    }, 
+    "series": [
+        {
+            "type": "tree", 
+            "data": [{
+  "name": "flare",
+  "children": [
+    {
+      "name": "analytics",
+      "children": [
+        {
+          "name": "cluster",
+          "children": [
+            {
+              "name": "AgglomerativeCluster",
+              "value": 3938
+            },
+            {
+              "name": "CommunityStructure",
+              "value": 3812
+            },
+            {
+              "name": "HierarchicalCluster",
+              "value": 6714
+            },
+            {
+              "name": "MergeEdge",
+              "value": 743
+            }
+          ]
+        },
+        {
+          "name": "graph",
+          "children": [
+            {
+              "name": "BetweennessCentrality",
+              "value": 3534
+            },
+            {
+              "name": "LinkDistance",
+              "value": 5731
+            },
+            {
+              "name": "MaxFlowMinCut",
+              "value": 7840
+            },
+            {
+              "name": "ShortestPaths",
+              "value": 5914
+            },
+            {
+              "name": "SpanningTree",
+              "value": 3416
+            }
+          ]
+        },
+        {
+          "name": "optimization",
+          "children": [
+            {
+              "name": "AspectRatioBanker",
+              "value": 7074
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "children": [
+        {
+          "name": "converters",
+          "children": [
+            {
+              "name": "Converters",
+              "value": 721
+            },
+            {
+              "name": "DelimitedTextConverter",
+              "value": 4294
+            },
+            {
+              "name": "GraphMLConverter",
+              "value": 9800
+            },
+            {
+              "name": "IDataConverter",
+              "value": 1314
+            },
+            {
+              "name": "JSONConverter",
+              "value": 2220
+            }
+          ]
+        },
+        {
+          "name": "DataField",
+          "value": 1759
+        },
+        {
+          "name": "DataSchema",
+          "value": 2165
+        },
+        {
+          "name": "DataSet",
+          "value": 586
+        },
+        {
+          "name": "DataSource",
+          "value": 3331
+        },
+        {
+          "name": "DataTable",
+          "value": 772
+        },
+        {
+          "name": "DataUtil",
+          "value": 3322
+        }
+      ]
+    },
+    {
+      "name": "display",
+      "children": [
+        {
+          "name": "DirtySprite",
+          "value": 8833
+        },
+        {
+          "name": "LineSprite",
+          "value": 1732
+        },
+        {
+          "name": "RectSprite",
+          "value": 3623
+        },
+        {
+          "name": "TextSprite",
+          "value": 10066
+        }
+      ]
+    },
+    {
+      "name": "flex",
+      "children": [
+        {
+          "name": "FlareVis",
+          "value": 4116
+        }
+      ]
+    },
+    {
+      "name": "physics",
+      "children": [
+        {
+          "name": "DragForce",
+          "value": 1082
+        },
+        {
+          "name": "GravityForce",
+          "value": 1336
+        },
+        {
+          "name": "IForce",
+          "value": 319
+        },
+        {
+          "name": "NBodyForce",
+          "value": 10498
+        },
+        {
+          "name": "Particle",
+          "value": 2822
+        },
+        {
+          "name": "Simulation",
+          "value": 9983
+        },
+        {
+          "name": "Spring",
+          "value": 2213
+        },
+        {
+          "name": "SpringForce",
+          "value": 1681
+        }
+      ]
+    },
+    {
+      "name": "scale",
+      "children": [
+        {
+          "name": "IScaleMap",
+          "value": 2105
+        },
+        {
+          "name": "LinearScale",
+          "value": 1316
+        },
+        {
+          "name": "LogScale",
+          "value": 3151
+        },
+        {
+          "name": "OrdinalScale",
+          "value": 3770
+        },
+        {
+          "name": "QuantileScale",
+          "value": 2435
+        },
+        {
+          "name": "QuantitativeScale",
+          "value": 4839
+        },
+        {
+          "name": "RootScale",
+          "value": 1756
+        },
+        {
+          "name": "Scale",
+          "value": 4268
+        },
+        {
+          "name": "ScaleType",
+          "value": 1821
+        },
+        {
+          "name": "TimeScale",
+          "value": 5833
+        }
+      ]
+    }
+  ]
+}], 
+            "left": "2%", 
+            "right": "2%", 
+            "top": "8%", 
+            "bottom": "20%", 
+            "symbol": "emptyCircle", 
+            "orient": "vertical", 
+            "expandAndCollapse": true, 
+            "label": {
+                "normal": {
+                    "position": "top", 
+                    "rotate": -90, 
+                    "verticalAlign": "middle", 
+                    "align": "right", 
+                    "fontSize": 9
+                }
+            }, 
+            "leaves": {
+                "label": {
+                    "normal": {
+                        "position": "bottom", 
+                        "rotate": -90, 
+                        "verticalAlign": "middle", 
+                        "align": "left"
+                    }
+                }
+            }, 
+            "animationDurationUpdate": 750
+        }
+    ]
+}
+```
+
+```
+
+```

@@ -1,0 +1,94 @@
+---
+title: 2022年全球GDP排名前十的国家
+description:
+date: 2022-06-18 20:24:29
+category:
+- baike
+- finance
+  
+tags: 2022年全球GDP前十的国家排名
+
+---
+
+<script src="/assets/js/charts/chart.js"></script>
+
+<div style="width: 100%; margin: 10% auto; ">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    const labels = [
+        '中国',
+        '美国',
+        'Chongqing',
+        'Shenzhen',
+        'Nanjing',
+        'Wuhan',
+        'Chengdu',
+        'Guangzhou',
+        'Beijing',
+        'Shanghai'
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: '2022年全球GDP排名前十的国家  •  即刻编程  •  cn.hongkezhang.com',
+            backgroundColor: 'rgb(205 96 144)',
+            borderColor: 'rgb(0 0 128)',
+            data: [284, 342, 369, 422, 427, 435, 557, 589, 783, 831],
+            barPercentage: 0.3
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            series: [
+                {
+                    barWidth: '20%'
+                }
+            ],
+            graphic: [{
+                type: 'group',
+                bounding: 'raw',
+                rotation: Math.PI / 4,//正方形旋转的角度
+                right: 70,
+                bottom: 15,
+                z: 100,
+                children: [
+                    {
+                        type: 'rect',
+                        left: 'center',//描述怎么根据父元素进行定位
+                        top: 'center',//描述怎么根据父元素进行定位
+                        z: 100,
+                        shape: {
+                            width: 140,
+                            height: 30
+                        },
+                        style: {
+                            // fill: 'rgba(0,0,0,0.3)'
+                        }
+                    },
+                    {
+                        type: 'text',
+                        left: 'center',
+                        top: 'center',
+                        z: 100,
+                        style: {
+                            fill: '#000000',
+                            text: 'domain.com',
+                            font: 'bolder 14px Microsoft YaHei'
+                        }
+                    }
+                ]
+            }]
+        }
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>

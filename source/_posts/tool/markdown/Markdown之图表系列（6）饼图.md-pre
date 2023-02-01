@@ -1,0 +1,18 @@
+---
+title: Markdown之图表系列（6）饼图
+date: 2022-07-29 17:38:44
+category:
+- tool
+- markdown
+
+tags: Markdown之echarts系列（4）饼图
+---
+```mermaid
+pie
+ title Pie Chart
+ "Dogs" : 386
+ "cats" : 567
+ "rabbit" : 700
+ "pig":365
+ "tiger" : 15
+```

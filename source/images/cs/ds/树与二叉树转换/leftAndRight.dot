@@ -1,0 +1,72 @@
+digraph G {
+    graph [pad=1.2, ranksep=1, label="\n\n树的左孩子右兄弟表示法"]
+
+    node [shape=plaintext]
+
+    a [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" >
+                           <TR><TD ID="first" PORT="f1" BGCOLOR="gray" WIDTH="40"></TD>
+                           <TD ID="second" PORT="f2" WIDTH="40">a</TD>
+                           <TD ID="third" PORT="f3" WIDTH="40" STYLE="font-size: 12px">null</TD></TR>
+              </TABLE>>];
+
+    b [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                           <TR><TD ID="first" PORT="f1" BGCOLOR="gray" WIDTH="40"></TD>
+                           <TD ID="second" PORT="f2" WIDTH="40">b</TD>
+                           <TD ID="third" PORT="f3" BGCOLOR="gray" WIDTH="40" STYLE="font-size: 12px"></TD></TR>
+              </TABLE>>];
+
+    c [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                               <TR><TD ID="first" PORT="f1" BGCOLOR="gray" WIDTH="40"></TD>
+                               <TD ID="second" PORT="f2" WIDTH="40">c</TD>
+                               <TD ID="third" PORT="f3" WIDTH="40" STYLE="font-size: 12px">null</TD></TR>
+                  </TABLE>>];
+
+    d [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                               <TR><TD ID="first" PORT="f1" WIDTH="40">null</TD>
+                               <TD ID="second" PORT="f2" WIDTH="40">d</TD>
+                               <TD ID="third" PORT="f3" BGCOLOR="gray" WIDTH="40" STYLE="font-size: 12px"></TD></TR>
+                  </TABLE>>];
+
+    e [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                                   <TR><TD ID="first" PORT="f1" BGCOLOR="gray" WIDTH="40"></TD>
+                                   <TD ID="second" PORT="f2" WIDTH="40">e</TD>
+                                   <TD ID="third" PORT="f3" WIDTH="40" STYLE="font-size: 12px">null</TD></TR>
+                      </TABLE>>];
+
+    f [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                                   <TR><TD ID="first" PORT="f1"  WIDTH="40">null</TD>
+                                   <TD ID="second" PORT="f2" WIDTH="40">f</TD>
+                                   <TD ID="third" PORT="f3" WIDTH="40" STYLE="font-size: 12px">null</TD></TR>
+                      </TABLE>>];
+
+    u [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                                   <TR><TD ID="first" PORT="f1"  WIDTH="40">null</TD>
+                                   <TD ID="second" PORT="f2" WIDTH="40">u</TD>
+                                   <TD ID="third" PORT="f3" BGCOLOR="gray" WIDTH="40" STYLE="font-size: 12px"></TD></TR>
+                      </TABLE>>];
+
+    v [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                                   <TR><TD ID="first" PORT="f1"  WIDTH="40">null</TD>
+                                   <TD ID="second" PORT="f2" WIDTH="40">v</TD>
+                                   <TD ID="third" PORT="f3" BGCOLOR="gray" WIDTH="40" STYLE="font-size: 12px"></TD></TR>
+                      </TABLE>>];
+
+    w [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+                               <TR><TD ID="first" PORT="f1" WIDTH="40">null</TD>
+                               <TD ID="second" PORT="f2" WIDTH="40">w</TD>
+                               <TD ID="third" PORT="f3" WIDTH="40" STYLE="font-size: 12px">null</TD></TR>
+                  </TABLE>>];
+
+    {rank=same; b;c;}
+    {rank=same; d;e;}
+    {rank=same; u;v;w;}
+    a:f1 -> b:f1;
+    b:f3 -> c:f1 [weight=0.9];
+    c:f1 -> f:f1;
+    b:f1 -> d:f1;
+    d:f3 -> e:f1;
+    e:f1 -> u:f1;
+    u:f3 -> v:f1;
+    v:f3 -> w:f1;
+
+}

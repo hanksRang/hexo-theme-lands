@@ -1,0 +1,12 @@
+---
+title: mysql/mysql多次连接错误导致客户端被block解决办法
+date: 2022-02-23 11:29:15
+category:
+- database
+- mysql
+tags: mysql/mysql多次连接错误导致客户端被block解决办法
+---
+
+```
+java.sql.SQLException: null,  message from server: "Host '183.223.251.209' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
+```

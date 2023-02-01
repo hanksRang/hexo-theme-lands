@@ -1,0 +1,44 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <%if (page.title != undefined) {%>
+        <title><%= page.title%> - 即刻编程</title>
+        <meta name="description" content="<%= page.title%>">
+    <%} else { %>
+        <title>即刻编程</title>
+        <meta name="description" content="即刻编程，计算机学习网站，Java、C语言，前端、开发工具">
+    <%}%>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="<%= page.title%>" />
+    <%# var keywords = [] %>
+    <%# if (page.tags != null) {page.tags.each(function (tag) {keywords.push(tag.name)})}%>
+    <%#if (keywords.length > 0) {%>
+<!--        <meta name="keywords" content="<%#= keywords.toString()%>" />-->
+    <%#} else { %>
+
+    <%#}%>
+<!--    <meta name="cache" content="no-cache">-->
+<!--    <link rel="manifest" href="site.webmanifest">-->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">-->
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+<!--    <link rel="stylesheet" href="/assets/css/progressbar_barfiller.css">-->
+<!--    <link rel="stylesheet" href="/assets/css/gijgo.css">-->
+<!--    <link rel="stylesheet" href="/assets/css/animate.min.css">-->
+    <link rel="stylesheet" href="/assets/css/animated-headline.css">
+<!--    <link rel="stylesheet" href="/assets/css/magnific-popup.css">-->
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+<!--    <link rel="stylesheet" href="/assets/css/nice-select.css">-->
+    <link rel="stylesheet" href="/assets/css/markdown.css?<%=Math.random()%>">
+<!--  for debug  <link rel="stylesheet" href="/assets/css/style.css?a=<%#= Math.random();%>">-->
+    <link rel="stylesheet" href="/assets/css/style.css?<%=Math.random()%>">
+<!--    <script src="/assets/js/lazy.min.js"></script>-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6077761457447046"
+            crossorigin="anonymous"></script>
+</head>

@@ -1,0 +1,14 @@
+digraph {
+    graph [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5,
+        labeljust=center, dip=720] 
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+    Taxi [label = "{Taxi | \l| \l}", width=1.5]
+    Bus [label = "{Bus | \l| \l}", width=1.5]
+    Car [label = "{Car| + name: String\l + drivers: Array\l |+ run(): void\l}", width=1.5] 
+
+    /* Unidirecitonal association */
+    {
+        edge [arrowhead=empty, label="继承", fontsize=10,  arrowtail=onormal, dir=back]
+        Car -> { Bus, Taxi }
+    }
+}

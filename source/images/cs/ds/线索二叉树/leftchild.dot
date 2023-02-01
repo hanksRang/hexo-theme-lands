@@ -1,0 +1,99 @@
+
+digraph structs {
+  label = "Example.com Network"
+  labelloc = top;
+  node [shape=record];
+  edge [dir=both];
+
+  subgraph cluster_0 {
+      label = "gw.example.com";
+
+      eth0 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>eth0</b></td></tr>
+              <tr><td align="left">IP: 172.16.0.1</td></tr>
+              <tr><td align="left">Mask: 255.255.255.0</td></tr>
+          </table>
+      >];
+      eth1 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>eth1</b></td></tr>
+              <tr><td align="left">IP: 10.0.0.1</td></tr>
+              <tr><td align="left">Mask: 255.255.255.0</td></tr>
+          </table>
+      >];
+      eth2 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>eth2</b></td></tr>
+              <tr><td align="left">IP: 192.168.0.1</td></tr>
+              <tr><td align="left">Mask: 255.255.255.0</td></tr>
+          </table>
+      >];
+  }
+
+  subgraph cluster_1 {
+      label = Internet;
+      labelloc = bottom;
+      InternetGW [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>ISP</b></td></tr>
+              <tr><td align="left">IP: 10.0.0.254</td></tr>
+          </table>
+      >];
+
+  }
+
+  subgraph cluster_2 {
+      label = Telephony;
+      labelloc = bottom;
+      TelephonyGW [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>Telecom</b></td></tr>
+              <tr><td align="left">IP: 192.168.0.254</td></tr>
+          </table>
+      >];
+  }
+
+  subgraph cluster_3 {
+      label = LAN;
+      labelloc = bottom;
+
+      sw1 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>switch1.example.com</b></td></tr>
+              <tr><td align="left">IP: 172.16.0.2</td></tr>
+          </table>
+      >];
+
+      sw2 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>switch2.example.com</b></td></tr>
+              <tr><td align="left">IP: 172.16.0.3</td></tr>
+          </table>
+      >];
+
+      ap1 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>wifi1.example.com</b></td></tr>
+              <tr><td align="left">IP: 172.16.0.4</td></tr>
+          </table>
+      >];
+
+      ap2 [label=<
+          <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+              <tr><td bgcolor="lightblue"><b>wifi2.example.com</b></td></tr>
+              <tr><td align="left">IP: 172.16.0.5</td></tr>
+          </table>
+      >];
+
+      sw1 -> sw2;
+      sw2 -> ap1;
+      sw2 -> ap2;
+  }
+
+
+  eth0 -> sw1;
+  eth1 -> InternetGW;
+  eth2 -> TelephonyGW;
+
+}

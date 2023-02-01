@@ -1,0 +1,2 @@
+
+String.format("%1$tF %1$tT", randomDate)
